@@ -73,7 +73,7 @@ class UserDataRepositoryTest {
         userDataSave.setProfilePicture("profile.jpg");
         UserData userDataUpdate = userDataRepository.save(userDataSave);
         assertThat(userDataUpdate.getIdUser()).isEqualTo(1L);
-        assertThat(userDataUpdate.getNameUser()).isEqualTo("Joel");
+        assertThat(userDataUpdate.getNameUser()).isEqualTo("Joe");
         assertThat(userDataUpdate.getDocument()).isEqualTo("10232212");
         assertThat(userDataUpdate.getRoleUser()).isEqualTo("Admin");
         assertThat(userDataUpdate.getEmail()).isEqualTo("example@example.com");

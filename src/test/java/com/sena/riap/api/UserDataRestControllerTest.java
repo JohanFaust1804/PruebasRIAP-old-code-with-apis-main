@@ -111,7 +111,7 @@ class UserDataRestControllerTest {
         long id = 1;
         userData1.setIdUser(id);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api_user/delete/{id_user}")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api_user/delete/{id_user}",id)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
         verify(userDataService, times(1)).deleteUserData(id);

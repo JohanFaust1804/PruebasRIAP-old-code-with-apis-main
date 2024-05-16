@@ -35,8 +35,8 @@ class EventDataRepositoryTest {
                 .date(fecha)
                 .startTime(star)
                 .endTime(end)
-                .location("Azalea")
-                .objective("Desarrollo de eventos")
+                .location("Center of industrie")
+                .objective("Develop of events")
                 .build();
     }
 
@@ -50,8 +50,8 @@ class EventDataRepositoryTest {
                 .date(fecha)
                 .startTime(star)
                 .endTime(end)
-                .objective("Desarrollo de eventos")
-                .location("Azalea")
+                .objective("Develop of events")
+                .location("Center of industrie")
                 .build();
 
         EventData eventSave = eventDataRepository.save(eventData1);
@@ -78,20 +78,20 @@ class EventDataRepositoryTest {
         LocalTime start = LocalTime.of(11, 2);
         LocalTime end = LocalTime.of(12, 0);
         eventSave.setIdEvent(1L);
-        eventSave.setLocation("Azalea");
+        eventSave.setLocation("Center of industrie");
         eventSave.setDate(fecha);
         eventSave.setStartTime(start);
         eventSave.setEndTime(end);
-        eventSave.setObjective("Decoracion de espacios");
+        eventSave.setObjective("Develop of events");
 
         EventData eventUpdate = eventDataRepository.save(eventSave);
 
         assertThat(eventUpdate.getIdEvent()).isEqualTo(1L);
-        assertThat(eventUpdate.getLocation()).isEqualTo("Azalea");
+        assertThat(eventUpdate.getLocation()).isEqualTo("Center of industrie");
         assertThat(eventUpdate.getDate()).isEqualTo(fecha);
         assertThat(eventUpdate.getStartTime()).isEqualTo(start);
         assertThat(eventUpdate.getEndTime()).isEqualTo(end);
-        assertThat(eventUpdate.getObjective()).isEqualTo("Decoracion de espacios");
+        assertThat(eventUpdate.getObjective()).isEqualTo("Develop of events");
     }
 
 

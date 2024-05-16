@@ -44,13 +44,13 @@ class UserCourseServiceImplTest {
     void getUserCourse() {
         given(userCourseRepository.findById(2L)).willReturn(Optional.of(userCourse));
 
-        // Llamada al método que se va a probar
+
         UserCourse userCourseRetornado = userCourseService.getUserCourseById(userCourse.getIdUserCourse());
 
-        // Verificación de los resultados
+
         assertThat(userCourseRetornado).isNotNull();
         assertThat(userCourseRetornado.getIdUserCourse()).isEqualTo(2L);
-        assertThat(userCourseRetornado.getIdUser()).isEqualTo(4L); // Verifica el ID del usuario
+        assertThat(userCourseRetornado.getIdUser()).isEqualTo(4L);
         assertThat(userCourseRetornado.getIdCourse()).isEqualTo(3L);
     }
 
@@ -59,11 +59,11 @@ class UserCourseServiceImplTest {
         given(userCourseRepository.save(userCourse)).willReturn(userCourse);
         UserCourse saveUserCourse = userCourseService.saveUserCourse(userCourse);
 
-        // then
+
         assertThat(saveUserCourse).isNotNull();
         assertThat(saveUserCourse).isEqualTo(userCourse);
 
-        // verify that save method was called once
+
         verify(userCourseRepository, times(1)).save(userCourse);
     }
 
@@ -71,11 +71,11 @@ class UserCourseServiceImplTest {
     void getUserCourseById() {
         given(userCourseRepository.findById(2L)).willReturn(Optional.of(userCourse));
 
-        //when
-        UserCourse empleadoGuardado = userCourseService.getUserCourseById(userCourse.getIdUserCourse());
 
-        //then
-        assertThat(empleadoGuardado).isNotNull();
+        UserCourse userSave = userCourseService.getUserCourseById(userCourse.getIdUserCourse());
+
+
+        assertThat(userSave).isNotNull();
     }
 
     @Test
@@ -91,15 +91,15 @@ class UserCourseServiceImplTest {
 
 
 
-        //when
+
         UserCourse userUpdate = userCourseService.updateUserCourse(idUserCourse, userCourse);
 
-        // then
+
         assertThat(userUpdate).isNotNull();
         assertThat(userUpdate.getIdUser()).isEqualTo(1L);
 
 
-        // verify that save method was called once with the modified object
+
         verify(userCourseRepository, times(1)).save(userCourse);
     }
 

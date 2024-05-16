@@ -35,7 +35,7 @@ class UserDataServiceImplTest {
                 .document("23223")
                 .age(20)
                 .nameUser("Oscar")
-                .email("supapa23@")
+                .email("example23@")
                 .phone("23233")
                 .roleUser("gey")
                 .password("123")
@@ -45,58 +45,58 @@ class UserDataServiceImplTest {
 
     @Test
     void saveUserData() {
-        //given
+
         given(userDataRepository.save(userData)).willReturn(userData);
         UserData savedUserData = userDataService.saveUserData(userData);
 
-        // then
+
         assertThat(savedUserData).isNotNull();
         assertThat(savedUserData).isEqualTo(userData);
 
-        // verify that save method was called once
+
         verify(userDataRepository, times(1)).save(userData);
 
     }
 
     @Test
     void updateUserData() {
-        //given
+
         Long idUser = 1L;
         UserData userData = UserData.builder()
                 .idUser(1L)
                 .document("23223")
                 .age(20)
-                .nameUser("cachon")  // Updated name
-                .email("supapa23@")
+                .nameUser("oscar")  // Updated name
+                .email("example23@")
                 .phone("23233")
-                .roleUser("gey")
+                .roleUser("Admin")
                 .password("123")
-                .profilePicture("yei")
+                .profilePicture("profile.jpg")
                 .build();
         given(userDataRepository.findById(idUser)).willReturn(Optional.of(userData));
         given(userDataRepository.save(userData)).willReturn(userData);
-        userData.setNameUser("cachon");
+        userData.setNameUser("oscar");
 
-        //when
+
         UserData userUpdate = userDataService.updateUserData(idUser, userData);
 
-        // then
+
         assertThat(userUpdate).isNotNull();
         assertThat(userUpdate.getIdUser()).isEqualTo(1L);
-        assertThat(userUpdate.getNameUser()).isEqualTo("cachon");
+        assertThat(userUpdate.getNameUser()).isEqualTo("oscar");
 
-        // verify that save method was called once with the modified object
+
         verify(userDataRepository, times(1)).save(userData);
     }
 
     @Test
     void deleteUserData() {
-        //given
+
         long id = 3L;
         willDoNothing().given(userDataRepository).deleteById(id);
-        //when
+
         userDataService.deleteUserData(id);
-        //then
+
         verify(userDataRepository,times(1)).deleteById(id);
     }
 }

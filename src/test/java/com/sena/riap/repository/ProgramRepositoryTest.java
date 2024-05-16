@@ -35,7 +35,7 @@ class ProgramRepositoryTest {
     void setup() {
         program = Program.builder()
                 .idProgram(1L)
-                .name("Desarrolo de software")
+                .name("Develop  software")
                 .build();
     }
 
@@ -43,7 +43,7 @@ class ProgramRepositoryTest {
     void testSaveProgram() {
         Program program1 = Program.builder()
                 .idProgram(1L)
-                .name("Desarrolo de software")
+                .name("Develop  software")
                 .build();
 
         Program programSave = programRepository.save(program1);
@@ -68,11 +68,11 @@ class ProgramRepositoryTest {
 
         Program programSave = programRepository.findById(program.getIdProgram()).get();
         programSave.setIdProgram(1L);
-        programSave.setName("Analisis de datos");
+        programSave.setName("Data analyst");
         Program programUpdate = programRepository.save(programSave);
 
         assertThat(programUpdate.getIdProgram()).isEqualTo(1L);
-        assertThat(programUpdate.getName()).isEqualTo("Analisis de datos");
+        assertThat(programUpdate.getName()).isEqualTo("Data analyst");
 
     }
 

@@ -45,7 +45,7 @@ class EventDataServiceImplTest {
                 .date(dateEvent)
                 .endTime(startEvent)
                 .startTime(endEvent)
-                .location("Poblado")
+                .location("Portsman")
                 .build();
     }
 
@@ -98,7 +98,7 @@ class EventDataServiceImplTest {
                     .date(dateEvent)
                     .endTime(startEvent)
                     .startTime(endEvent)
-                    .location("Poblado")
+                    .location("Portsman")
                     .build();
 
         given(eventDataRepository.findById(idEvent)).willReturn(Optional.of(eventData));

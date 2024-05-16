@@ -47,7 +47,7 @@ class AttendanceServiceImplTest { // fino
         Attendance attendance1 = attendanceService.saveAttendance(attendance);
 
         assertThat(attendance1).isNotNull();
-        //System.out.println(attendance1.getIdAttendance() + " event " +  attendance1.getIdEvent() + " user " +attendance1.getIdUser());
+
     }
 
     @Test

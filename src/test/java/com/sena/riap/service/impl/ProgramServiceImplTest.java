@@ -80,15 +80,15 @@ class ProgramServiceImplTest {
 
 
 
-        //when
+
         Program programUpdate = programService.updateProgram(idProgram, program);
 
-        // then
+
         assertThat(programUpdate).isNotNull();
         assertThat(programUpdate.getIdProgram()).isEqualTo(2L);
 
 
-        // verify that save method was called once with the modified object
+
         verify(programRepository, times(1)).save(program);
 
     }

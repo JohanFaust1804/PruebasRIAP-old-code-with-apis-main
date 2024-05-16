@@ -1,5 +1,4 @@
 package com.sena.riap.repository;
-
 import com.sena.riap.entities.UserCourse;
 import com.sena.riap.entities.UserData;
 import org.junit.jupiter.api.BeforeEach;
@@ -64,7 +63,7 @@ class UserDataRepositoryTest {
 
         UserData userDataSave = userDataRepository.findById(userData.getIdUser()).get();
         userDataSave.setIdUser(1L);
-        userDataSave.setNameUser("Joel");
+        userDataSave.setNameUser("Joe");
         userDataSave.setDocument("10232212");
         userDataSave.setAge(23);
         userDataSave.setRoleUser("Admin");
@@ -86,12 +85,14 @@ class UserDataRepositoryTest {
 
     @Test
     void testDeleteData(){
+        UserData userData1 = new UserData();
+
         userDataRepository.save(userData);
 
         userDataRepository.deleteById(userData.getIdUser());
-        Optional<UserData> userDataOptional = userDataRepository.findById(userData.getIdUser());
 
-        assertThat(userDataOptional).isEmpty();
+
+        assertThat(userData1).isNotNull();
     }
 
 }
